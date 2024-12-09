@@ -28,7 +28,7 @@ class _RControllerState extends State<RController> {
   void initState() {
     super.initState();
 
-    FlutterBluePlus.startScan(timeout: const Duration(seconds: 2));
+    FlutterBluePlus.startScan(timeout: const Duration(seconds: 10));
 
     FlutterBluePlus.scanResults.listen((results) {
       for (ScanResult result in results) {
