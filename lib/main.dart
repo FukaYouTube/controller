@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
+import 'package:rcontroll/screens/loader.dart';
+import 'package:rcontroll/screens/controller.dart';
+
 void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -78,47 +81,10 @@ class _RControllerState extends State<RController> {
 
   Widget loaderContent(BuildContext context) {
     if (_bluetoothDevice == null) {
-      return const Center(
-        child: Text("Connecting ..."),
-      );
+      return const ConnectDeviceLoader();
     }
 
-    return Column(
-      children: <Padding>[
-        Padding(padding: const EdgeInsets.only(top: 150), child: ElevatedButton(
-          onPressed: () => sendCommand('A'),
-          child: const Text("A")
-        )),
-        Padding(padding: const EdgeInsets.only(top: 10), child: ElevatedButton(
-          onPressed: () => sendCommand('B'),
-          child: const Text("B")
-        )),
-        Padding(padding: const EdgeInsets.only(top: 10), child: ElevatedButton(
-          onPressed: () => sendCommand('C'),
-          child: const Text("C")
-        )),
-        Padding(padding: const EdgeInsets.only(top: 10), child: ElevatedButton(
-          onPressed: () => sendCommand('D'),
-          child: const Text("D")
-        )),
-        Padding(padding: const EdgeInsets.only(top: 10), child: ElevatedButton(
-          onPressed: () => sendCommand('E'),
-          child: const Text("E")
-        )),
-        Padding(padding: const EdgeInsets.only(top: 10), child: ElevatedButton(
-          onPressed: () => sendCommand('F'),
-          child: const Text("F")
-        )),
-        Padding(padding: const EdgeInsets.only(top: 10), child: ElevatedButton(
-          onPressed: () => sendCommand('G'),
-          child: const Text("G")
-        )),
-        Padding(padding: const EdgeInsets.only(top: 10), child: ElevatedButton(
-          onPressed: () => sendCommand('I'),
-          child: const Text("I")
-        )),
-      ],
-    );
+    return const Controller();
   }
 
   @override
